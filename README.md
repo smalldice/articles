@@ -1,4 +1,4 @@
-# 如何搭建前端工程基础设施
+# 从0到1搭建前端工程基础设施
 
 ## 介绍
 
@@ -368,4 +368,28 @@ git cz
 此时可以看到命令行中出现git commit message header type选择:
 <img src="./static/images/commitizen-1.jpg"/>
 
+接下来只要根据命令行提示，一步步提交commit message即可。
 
+我个人还是觉得提交流程是比较繁琐的， 可以自定义npm script 来简化提交流程
+>package.json
+```json
+{
+  // ...
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --config ./webpack.config.js",
+    "lint": "eslint src --fix",
+    "commit": "git add . && git cz"
+  },
+  // ...
+}
+```
+
+此时只需要运行如下命令即可进入提交流程：
+```bash
+yarn commit
+```
+
+## 写在后面
+
+> 工具的出现是为了解决开发过程中对代码管理各个方面的痛点，根据团队、业务的不同，对工具的需求也不同。本文只是介绍了部分工具在开发流程关键节点上如何搭配使用， 在开发的整条链路上，还有很多其他工具可以使用， 并且每个工具本身的实现、思路都是值得深究的。本文沿着<strong>从0到1</strong>的思路， 演示了如何搭建适合自己的工程基础设施，希望对看到这篇文章的你有所帮助。

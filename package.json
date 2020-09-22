@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config ./webpack.config.js",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix",
+    "commit": "git add . && git cz"
   },
   "repository": {
     "type": "git",
