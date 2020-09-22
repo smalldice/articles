@@ -175,7 +175,7 @@ module.exports = {
 
 为了验证效果， 现在 在 src 目录下创建 index.ts中写一段代码:
 <div>
-  <img src="./static/images/eslint-1.jpg">
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/eslint-1.jpg?raw=true">
 </div>
 
 此时，vscode插件提示我们有错误， 让我们用eslint命令行修复一下。
@@ -185,7 +185,7 @@ yarn run lint
 ```
 修复后的代码：
 <div>
-  <img src="./static/images/eslint-2.jpg">
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/eslint-2.jpg?raw=true">
 </div>
 
 
@@ -225,7 +225,7 @@ yarn dev
 浏览器打开：
 
 <div>
-  <img src="./static/images/helloworld.jpg"/>
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/helloworld.jpg?raw=true"/>
 </div>
 
 如果你成功看到了这个，那么先给自己一个 👍！
@@ -273,7 +273,7 @@ git commit -m "feat: husky 演示"
 ```
 查看命令行：
 <div>
-  <img src="./static/images/husky.jpg"/>
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/husky.jpg?raw=true"/>
 </div>
 可以看到在pre-commit阶段，执行了scripts中的lint 脚本
 
@@ -301,7 +301,7 @@ git commit -m "feat: husky 演示"
 
 我们来提交一个不符合规范的代码看看
 <div>
-  <img src="./static/images/error.jpg" />
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/error.jpg?raw=true" />
 </div>
 可以看到因为错误而终止了提交。
 
@@ -370,7 +370,7 @@ git cz
 
 此时可以看到命令行中出现git commit message header type选择:
 <div>
-  <img src="./static/images/commitizen-1.jpg"/>
+  <img src="https://github.com/smalldice/awesome-project/blob/master/static/images/commitizen-1.jpg?raw=true"/>
 </div>
 接下来只要根据命令行提示，一步步提交commit message即可。
 
