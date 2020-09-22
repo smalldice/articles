@@ -34,7 +34,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn run lint && git add ."
+      "pre-commit": "lint-staged && git add ."
     }
+  },
+  "lint-staged": {
+    "*.ts": ["yarn run lint"]
   }
 }
