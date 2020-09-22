@@ -172,7 +172,7 @@ module.exports = {
 
 为了验证效果， 现在 在 src 目录下创建 index.ts中写一段代码:
 <div>
-<img src="./static/images/sample-code.jpg">
+<img src="./static/images/eslint-1.jpg">
 </div>
 
 此时，vscode插件提示我们有错误， 让我们用eslint命令行修复一下。
@@ -182,7 +182,7 @@ yarn run lint
 ```
 修复后的代码：
 <div>
-<img src="./static/images/sample-code2.jpg">
+<img src="./static/images/eslint-2.jpg">
 </div>
 
 
@@ -222,7 +222,7 @@ yarn dev
 浏览器打开：
 
 <div>
-  <img src="./static/images/startup.png"/>
+  <img src="./static/images/helloworld.jpg"/>
 </div>
 
 如果你成功看到了这个，那么先给自己一个 👍！
