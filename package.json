@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config ./webpack.config.js",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix --max-warnings 0"
   },
   "repository": {
     "type": "git",

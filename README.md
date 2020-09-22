@@ -275,3 +275,22 @@ git commit -m "feat: husky 演示"
 可以看到在pre-commit阶段，执行了scripts中的lint 脚本
 
 > 虽然本篇文章中未提到其他例如stylelint工具， 如果需要对css或scss 等css预处理语言编写的代码做检测，或者做一些其他工作，可以通过“pre-commit: scripts1 && script2 && script3 ....” 的方式在pre-commit阶段顺序执行。
+
+使用lint-staged 只对暂存区的文件进行检测工作
+
+> package.json
+
+```json
+{
+  // ...
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && git add ."
+    }
+  },
+  "lint-staged": {
+    "*.ts": ["yarn run lint"]
+  }
+  // ...
+}
+```
