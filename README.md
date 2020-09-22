@@ -274,7 +274,7 @@ git commit -m "feat: husky 演示"
 
 可以看到在pre-commit阶段，执行了scripts中的lint 脚本
 
-> 虽然本篇文章中未提到其他例如stylelint工具， 如果需要对css或scss 等css预处理语言编写的代码做检测，或者做一些其他工作，可以通过“pre-commit: scripts1 && script2 && script3 ....” 的方式在pre-commit阶段顺序执行。
+> 虽然本篇文章中未提到其他例如stylelint工具， 如果需要对css或scss 等css预处理语言编写的代码做检测，或者做一些其他工作，可以通过“pre-commit: scripts1 && script2 && script3 ....” 的方式在pre-commit阶段顺序执行。或者，根据接下来介绍的lint-staged对不同文件应用不同的脚本检测。
 
 使用lint-staged 只对暂存区的文件进行检测工作
 
@@ -290,7 +290,82 @@ git commit -m "feat: husky 演示"
   },
   "lint-staged": {
     "*.ts": ["yarn run lint"]
+    // 对于其他文件的检测，只要在这里添加对应的规则即可
   }
   // ...
 }
 ```
+
+我们来提交一个不符合规范的代码看看
+
+<img src="./static/images/error.jpg" />
+
+可以看到因为错误而终止了提交。
+
+到了这一步， 我们完成了对代码质量和风格的检测。
+
+<div style="text-align: center;font-size: 20px"><span style="border-bottom: 2px solid pink">Commitizen</span></div>
+
+>在我们把关注点放在代码质量和风格上时， 提交信息的规范往往会被忽略， 试想开发完成后， 提交的信息晦涩、不明确、追踪起来也很困难。 就像吃完一顿大餐后不新鲜的水果，会让人对之前的美味印象大打折扣
+
+#### 社区的commit message规范有很多， 接受程度比较广泛是Angular规范
+
+#### 规范的commit message给我们带来什么：
+
+<ol>
+  <li>commit message的作用是方便快速预览，查看者可以明确理解每次提交的目的.</li>
+  <li>方便在快速查找信息的时候过滤某些commit</li>
+  <li>可以通过commit 直接生成change log</li>
+</ol>
+
+
+#### commit message的格式:
+
+```
+<type(必须)>(<scope（可选）>): <subject(必须)>
+// 空一行
+<body>
+// 空一行
+<footer>
+```
+
+
+> 本文着重介绍header type 部分， 更多详情请移步<a href="https://gist.github.com/stephenparish/9941e89d80e2bc58a153"> Angular commit message conventions</a> 查看
+
+type用于说明commit的类别，有以下七种标志
+<ul>
+  <li>feat: 新功能(feature)</li>
+  <li>fix: 修改bug</li>
+  <li>docs: 文档(documentation)</li>
+  <li>style: 格式(不影响代码运行的变动)</li>
+  <li>refactor: 重构(既不是新增功能，也不是修改bug的代码变动)</li>
+  <li>test: 增加测试</li>
+  <li>chore: 构建过程或者辅助工具的变动</li>
+</ul>
+
+但是， 如果通过原始的git commit 来提交commit message 的体验是肥肠差的， 此时需要借助工具commitizen， 使得我们能够在命令行中交互式的提交
+
+commitizen配置:
+
+安装依赖:
+```bash
+yarn global add commitizen
+```
+
+在当前项目下初始化changelog:
+```bash
+commitizen init cz-conventional-changelog --yarn --dev --exact
+```
+
+然后我们尝试提交一下:
+> 此时提交的命令由git commit -m 修改为<strong>git cz</strong>
+
+```bash
+git add .
+git cz
+```
+
+此时可以看到命令行中出现git commit message header type选择:
+<img src="./static/images/commitizen-1.jpg"/>
+
+
